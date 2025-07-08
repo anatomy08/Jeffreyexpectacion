@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Jeffrey Expectacion Website Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
+    
+    <style>
+         html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Prevent flash of unstyled content */
+    body {
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+    
+    body.loaded {
+        opacity: 1;
+    }
+
+        :root {
+            --primary-bg: #121212;
+            --secondary-bg: #1a1a1a;
+            --accent-gold: #FFD700;
+            --light-gold: #FFECB3;
+            --text-primary: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --card-bg: #1e1e1e;
+            --section-spacing: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary-bg), var(--secondary-bg));
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--accent-gold);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("BG/Anchor.jpg") no-repeat center center/cover;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.5));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-size: 24px;
+            color: var(--text-primary);
+            margin-top: 10px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--primary-bg);
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+        }
+
+        .btn:hover {
+            background: var(--light-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-gold);
+            color: var(--primary-bg);
+        }
+
+        /* About Section */
+        .section {
+            padding: var(--section-spacing) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--accent-gold);
+            display: inline-block;
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            background: var(--accent-gold);
+            bottom: -10px;
+            left: 15%;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+      
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+            border-color: var(--accent-gold);
+        }
+
+        .skill-card i {
+            font-size: 40px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Projects Section */
+        .projects-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-gold);
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .tab-btn.active::after {
+            width: 100%;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        /* Tab Transition Effects */
+        .tab-content {
+            position: relative;
+            min-height: 600px; /* Adjust based on your content */
+        }
+
+        .projects-tab {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        .projects-tab.active {
+            position: relative;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+            border-color: var(--accent-gold);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+        }
+
+        .project-info p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-tags span {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--accent-gold);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .project-links {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 0; /* remove your margin-top here */
+}
+
+        .project-links a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .project-links a:hover {
+            color: var(--light-gold);
+        }
+
+        .project-links a i {
+            margin-right: 5px;
+        }
+
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .certificate-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+            border-color: var(--accent-gold);
+        }
+
+        .certificate-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        
+        .certificate-info {
+            padding: 20px;
+        }
+
+        .certificate-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+        }
+
+        .certificate-info p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+
+        
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-bg);
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--accent-gold);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-primary);
+            font-size: 20px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero h1 span {
+                font-size: 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+            
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .projects-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+     #typing-text {
+    border-right: 2px solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: blink 0.7s step-end infinite;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+        
+
+.project-card {
+    position: relative;
+    margin-bottom: 40px; /* space between cards */
+}
+
+.project-info {
+    padding-bottom: 40px; /* space for the absolute text */
+}
+
+.unavailable-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-style: italic;
+    color: #b0b0b0;
+    font-size: 14px;
+    pointer-events: none;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+/* Add to your existing CSS */
+/* Hero section - already visible */
+.hero {
+    opacity: 1;
+    transform: none;
+}
+
+/* About section - complex animation */
+#about {
+    opacity: 0;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+#about.animate {
+    opacity: 1;
+    animation: aboutEntrance 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+@keyframes aboutEntrance {
+    0% {
+        opacity: 0;
+        transform: rotateY(30deg) translateX(-100px) scale(0.9);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0) translateX(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Skills section - staggered cards animation */
+#skills {
+    opacity: 1; /* Container stays visible */
+}
+
+#skills .skills-container {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+#skills.animate .skills-container {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#skills .skill-card {
+    opacity: 0;
+    transform: translateY(20px) rotateX(-15deg);
+    transition: all 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+#skills.animate .skill-card {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+
+/* Add delay to each skill card */
+#skills.animate .skill-card:nth-child(1) { transition-delay: 0.1s; }
+#skills.animate .skill-card:nth-child(2) { transition-delay: 0.2s; }
+#skills.animate .skill-card:nth-child(3) { transition-delay: 0.3s; }
+#skills.animate .skill-card:nth-child(4) { transition-delay: 0.4s; }
+#skills.animate .skill-card:nth-child(5) { transition-delay: 0.5s; }
+#skills.animate .skill-card:nth-child(6) { transition-delay: 0.6s; }
+#skills.animate .skill-card:nth-child(7) { transition-delay: 0.7s; }
+#skills.animate .skill-card:nth-child(8) { transition-delay: 0.8s; }
+#skills.animate .skill-card:nth-child(9) { transition-delay: 0.9s; }
+#skills.animate .skill-card:nth-child(10) { transition-delay: 1.0s; }
+
+/* Projects section - flip animation */
+#projects {
+    perspective: 2000px;
+}
+
+#projects .projects-grid {
+    opacity: 0;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) translateZ(-100px);
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#projects.animate .projects-grid {
+    opacity: 1;
+    transform: rotateX(0) translateZ(0);
+}
+
+/* Individual project cards */
+.project-card {
+    transform-style: preserve-3d;
+    transform: rotateY(20deg);
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#projects.animate .project-card {
+    transform: rotateY(0);
+}
+
+/* Certificates section - zoom and fade */
+#certificates {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#certificates.animate {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Contact section - wave animation */
+#contact {
+    opacity: 0;
+    clip-path: polygon(0 20%, 100% 0, 100% 80%, 0% 100%);
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#contact.animate {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: translateY(0);
+}
+    </style>
+
+  
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-gamepad"></i> ++Jye Dev++
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                      Jeffrey Expectacion!
+                </h1>
+                <h2>
+                    <span id="typing-text">C# Unity Game Developer</span>
+                    <p>Cavite City, Philippines</p>
+                </h2>
+                <p>I enjoy creating games using Unity and C#. I’ve worked on a variety of projects where I’ve learned a lot about gameplay mechanics, character animations, and the basics of making fun and interactive experiences. I’m always looking to improve and take on new challenges as I continue to grow in this field.
+
+Take a look at my portfolio to see some of the projects I’ve worked on so far</p>
+                <div class="btn-group">
+                    <a href="#projects" class="btn">Project Portfolio</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="Jye.jpg" alt="Developer working" style="max-width: 400px; width: 100%; height: auto;">
+                </div>
+                <div class="about-text">
+                    
+                    <p>With 2 years of experience in Unity development, I have hands-on experience in integrating cloud services with AWS, optimizing mobile and WebGL builds, and managing assets using Unity Addressables and Asset Bundles.</p>
+                    <p>I’ve worked extensively with API integration and migration, version control systems like GitHub and SourceTree, and front-end technologies (HTML, CSS, JavaScript) to ensure browser compatibility. Leveraging the Unity Profiler, I optimized performance by addressing latency and timing issues, and I implemented Spine animations to create fluid, engaging experiences. My focus on modular, reusable code has helped maintain stability and ease future updates.</p>
+                    <p>Before transitioning into software development, I worked as a licensed Marine Engineer on international vessels, where I operated, maintained, and troubleshot complex shipboard systems including engines, pumps, generators, and HVAC equipment. This experience honed my ability to stay calm under pressure, solve problems efficiently, and coordinate with diverse teams—skills I now bring into software development to drive projects forward with precision and reliability.</p>
+           
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fab fa-unity"></i>
+                    <h3>Unity 3D</h3>
+                    <p>Advanced 3D game development including lighting, shaders, physics, and performance optimization.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cube"></i>
+                    <h3>Unity 2D</h3>
+                    <p>Pixel-perfect 2D game development with Sprite management, tilemaps, and 2D physics.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>C# Programming</h3>
+                    <p>Clean, maintainable code with design patterns, SOLID principles, and performance optimization.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-spinner"></i>
+                    <h3>Unity Animation</h3>
+                    <p>Timeline, and custom animation systems for both 2D and 3D characters.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-bone"></i>
+                    <h3>Spine Animation</h3>
+                    <p>2D skeletal animation integration and runtime manipulation for fluid character movements.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Asset Bundles</h3>
+                    <p>Efficient asset management and dynamic loading for optimal memory usage.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Addressables</h3>
+                    <p>Modern content management system for streamlined asset loading and dependency handling.</p>
+                </div>
+               
+                <div class="skill-card">
+                    <i class="fab fa-aws"></i>
+                    <h3>AWS</h3>
+                    <p>Cloud services integration including S3 and Cloudfront.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <p>Familiar with JavaScript for web-based Unity integrations.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML/CSS</h3>
+                    <p>Responsive web design for Unity WebGL projects and companion websites.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-tabs">
+                <button class="tab-btn active" data-tab="self">Self Projects</button>
+                <button class="tab-btn" data-tab="work">Work Projects</button>
+            </div>
+            <div class="tab-content">
+                <div class="projects-tab active" id="self-projects">
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-img">
+                                  <img src="Gif/legend-of-biringan-gif-2.gif" alt="Animated preview">
+                            </div>
+                            <div class="project-info">
+                                <h3>Legend of Biringan</h3>
+                                <p>2023</p>
+                                <p>Designed efficient tilemaps using Unity’s Rule Tile system to support multiple game levels. Developed animation systems and Animator controllers for both player and enemy characters. Implemented player death and level completion mechanics using Unity’s SceneManager. Created a GameSessionScript to manage player lives and handle game session resets.</p>
+                                <div class="project-tags">
+                                    <span>Unity 2D</span>
+                                    <span>C#</span>
+                                    <span>Tile Platformer Game</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://jeffreyexpectacion.itch.io/legend-of-biringan"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="Gif/grab-delivery-gif.gif" alt="Animated preview">
+                            </div>
+                            <div class="project-info">
+                                <h3>Grab Delivery</h3>
+                                <p>2023</p>
+                                <p>Manipulated 2D objects using Unity’s built-in methods such as Rotate and Translate. Implemented collision detection using OnCollisionEnter2D and OnTriggerEnter2D events. Configured directional movement through Input.GetAxis using Unity’s Input Manager.</p>
+                                <div class="project-tags">
+                                    <span>Unity 2D</span>
+                                    <span>C#</span>
+                                    <span>Unity's Input Manager</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://jeffreyexpectacion.itch.io/grab-delivery"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="Gif/sangley-point-gif-3.gif" alt="Animated preview">
+                            </div>
+                            <div class="project-info">
+                                <h3>Sangley Point</h3>
+                                 <p>2023</p>
+                                <p>Triggered actions using particle collisions to handle projectile impacts on enemies. Orchestrated the game’s opening sequence with Unity’s Timeline system, coordinating player and enemy events. Enhanced gameplay by integrating sound effects and particle explosions for player deaths and enemy destruction. Utilized object instantiation to ensure script functionality persists even after enemy objects are removed.</p>
+                                <div class="project-tags">
+                                    <span>Unity 3D</span>
+                                    <span>Unity Timeline System</span>
+                                    <span>Airplane Shooting Game</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://jeffreyexpectacion.itch.io/sangley-point"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="Gif/fly-magpie-gif.gif" alt="Animated preview">
+                            </div>
+                            <div class="project-info">
+                                <h3>Fly Magpie</h3>
+                                <p>2023</p>
+                                <p>Implemented precise player controls for rotation and thrust using Unity’s Input Manager. Developed a collision system leveraging Rigidbody physics, OnCollision events, and switch statements to handle varied outcomes. Enabled player interactions through OnTrigger events. Integrated cheat codes to provide Skip Level and God Mode functionalities.</p>
+                                <div class="project-tags">
+                                    <span>Unity 3D</span>
+                                    <span>Point A to Point B</span>
+                                    <span>OnTrigger and OnCollision Events</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://jeffreyexpectacion.itch.io/fly-magpie"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="Gif/projectile-track-gif.gif" alt="Animated preview">
+                            </div>
+                            <div class="project-info">
+                                <h3>Projectile Track</h3>
+                                 <p>2023</p>
+                                <p>Implemented notifications for when total energy is depleted. Developed a score system that updates the high score only when the current score exceeds it.</p>
+                                <div class="project-tags">
+                                    <span>Unity 3D</span>
+                                    <span>Mobile Game Development</span>
+                                    <span>Unity Notification Updates</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://play.google.com/store/apps/details?id=com.Jye.projectiletrack"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                </div>
+                                <p class="unavailable-text">Currently unavailable</p>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="Gif/stray-cat-gif.gif" alt="Animated preview">
+                            </div>
+                            <div class="project-info">
+                                <h3>Stray Cat</h3>
+                                <p>2023</p>
+                                <p>Integrated Unity Ads to allow users to continue the game without resetting their score.</p>
+                                <div class="project-tags">
+                                    <span>Unity 3D</span>
+                                    <span>Mobile Game Development</span>
+                                    <span>Unity Ads</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://play.google.com/store/apps/details?id=com.jye.straycat"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                </div>
+                                <p class="unavailable-text">Currently unavailable</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects-tab" id="work-projects">
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="Work/basketball.png" alt="Work Project 1">
+                            </div>
+                            <div class="project-info">
+                                <h3>Slam Dunk Wilds</h3>
+                                <p>2023</p>
+                                <p>developed as part of a work project, featuring smooth UI animations, vibrant visuals, and classic slot mechanics. I was responsible for implementing the core gameplay loop, integrating DOTween for seamless UI transitions, applying custom shaders for polished visuals, and developing logic to randomize spin results and evaluate paylines.</p>
+                                <p style="font-size: 0.9em; color: rgba(0, 0, 0, 0.6); font-style: italic;">
+                                 Note: Visual assets shown are custom/AI-generated. The project was inspired by a well-known slot game but is presented with original visuals and title for portfolio purposes.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Unity2D</span>
+                                    <span>Casino</span>
+                                    <span>DoTween</span>
+                                </div>
+                                <div class="project-links">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="Work/ox.png" alt="Work Project 2">
+                            </div>
+                            <div class="project-info">
+                                <h3>Wild Ox Wins</h3>
+                                 <p>2024</p>
+                                <p>I developed UI elements and animations using the DOTween library and integrated Spine animations to enhance the visual experience. Working closely with one teammate, I utilized Git and SourceTree for version control and collaboration. I integrated APIs into Unity by implementing event-driven architecture and singleton patterns for clean, maintainable code. Additionally, I identified and resolved performance bottlenecks and fixed bugs to improve stability. Most importantly, I led the successful migration of the project’s API from version 1 to version 2, ensuring a smooth and efficient transition.</p>
+                                <p style="font-size: 0.9em; color: rgba(0, 0, 0, 0.6); font-style: italic;">
+                                 Note: Visual assets shown are custom/AI-generated. The project was inspired by a well-known slot game but is presented with original visuals and title for portfolio purposes.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Unity2D</span>
+                                    <span>Spine</span>
+                                    <span>API Integration</span>
+                                </div>
+                                <div class="project-links">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="Work/mw2.jpg" alt="Work Project 3">
+                            </div>
+                            <div class="project-info">
+                                <h3>Golden Dragon Tiles Part 1 & 2</h3>
+                                 <p>2024</p>
+                                <p>I integrated the initial game mechanics, prefabs, and data while utilizing custom script animations to optimize performance. Additionally, I implemented an Audio Manager to efficiently manage sound effects. I also built asset bundles and addressed assets using ASTC and DXT formats to support different platforms. For Part 2, worked with a similar API but replaced some assets and adjusted a few game mechanics and animations accordingly.</p>
+                                <p style="font-size: 0.9em; color: rgba(0, 0, 0, 0.6); font-style: italic;">
+                                 Note: Visual assets shown are custom/AI-generated. The project was inspired by a well-known slot game but is presented with original visuals and title for portfolio purposes.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Unity</span>
+                                    <span>Multiplayer</span>
+                                    <span>AWS GameLift</span>
+                                </div>
+                                <div class="project-links">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="Work/launchers.gif" alt="Work Project 4-10">
+                            </div>
+                            <div class="project-info">
+                                <h3>Game Launchers</h3>
+                                 <p>2025</p>
+                                <p>I collaborated closely with Unity developers, UI/UX designers, QA, and backend teams to design and implement core launcher mechanics across multiple versions. I integrated the transaction history UI by connecting to backend APIs, and also implemented the customer service module and mail announcement interface. Additionally, I contributed to the software update integration process and actively assisted in identifying and resolving bugs and issues to ensure a smooth and stable user experience. This game launcher was produced in over 8 variants, each tailored with different designs and features based on specific client or project needs.</p>
+                                <div class="project-tags">
+                                    <span>Game Launchers</span>
+                                    <span>Collaboration</span>
+                                </div>
+                                <div class="project-links">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="Work/aws/serverweb.gif" alt="Work Project 4-10">
+                            </div>
+                            <div class="project-info">
+                                <h3>AWS and WebGL Builds</h3>
+                                 <p>2025</p>
+                                <p>I built the games using WebGL with integrated Addressables and AssetBundles to support optimized loading and platform-specific formats. I handled deployment to both test and production environments using AWS and Cloudflare, ensuring smooth distribution and access. I also contributed to team tasks across other game projects, fostering collaboration and shared progress. Additionally, I configured metadata settings to ensure proper file formatting and compatibility for WebGL builds, and assisted with JavaScript, HTML, and CSS to improve the loading format and implement error-catching mechanisms for a more stable and user-friendly experience.</p>
+                                <div class="project-tags">
+                                    <span>AWS</span>
+                                    <span>WEBGL BUILDS</span>
+                                    <span>SERVER TEST/PRODUCTION</span>
+                                    <span>WEB DEV TASK</span>
+                                </div>
+                                <div class="project-links">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certificates</h2>
+            </div>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="Certificates/2d.png" alt="Animated preview">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Unity Game Development 2D Course</h3>
+                        <p>Completed a comprehensive course focused on 2D game development using Unity. Learned key concepts such as tilemap systems, physics-based movement, animations using Animator and Animation controllers, UI integration, and game logic implementation using C#. Built multiple 2D gameplay features including player control, enemy behavior, collisions, scene management, and level progression.</p>
+                        <a href="https://www.udemy.com/certificate/UC-5700c1fc-eac6-4c2c-aeef-f2e4e8eb688c/" class="btn">View Certificate</a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                         <img src="Certificates/3d.png" alt="Animated preview">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Unity Game Development 3D Course</h3>
+                        <p>Completed an in-depth course on 3D game development with Unity. Gained hands-on experience with 3D physics, object interactions, lighting and shadows, camera systems, terrain tools, and prefab-based level design. Developed gameplay mechanics such as character movement, jumping, shooting, enemy AI, and collision handling using C#. Also explored 3D animation, and scene transitions.</p>
+                        <a href="https://www.udemy.com/certificate/UC-90747028-a77d-4d10-91dc-3ae1646f580f/" class="btn">View Certificate</a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="Certificates/mobiledev.png" alt="Animated preview">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Unity Mobile Game Development Course</h3>
+                        <p>Completed a specialized course focused on developing games for mobile platforms using Unity. Learned best practices for optimizing performance, touch input handling, UI scaling, and device compatibility. Covered integration of platform-specific features such as screen orientation, accelerometer, and mobile ads. Developed and deployed mobile-friendly game mechanics using C# with attention to battery and resource management.</p>
+                        <a href="https://www.udemy.com/certificate/UC-1924b716-ffae-4b95-8eb1-138afbddd305/" class="btn">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Let's Work Together</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>I'm currently available for freelance work or full-time positions. If you have a project that needs creative solutions or a team that needs Unity expertise, I'd love to hear about it.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>expectacionjeffrey@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+639163400878</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Philippines</span>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="footer-logo">Thank You!</a>
+                <div class="social-links">
+                    <a href="https://ph.linkedin.com/in/jeffrey-expectacion-3a1a37221" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/anatomy08" title="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Website Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+const texts = [
+    "C# Developer..",
+    "Unity Game Developer..",
+    "Former Seafarer..",
+    "Software Engineer..",
+    "Licensed Marine Engineer.."
+];
+
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+let isDeleting = false;
+const speed = 100; // Typing speed
+const pause = 1500; // Pause between texts
+
+function type() {
+    const typingSpan = document.getElementById("typing-text");
+    if (!typingSpan) return;
+
+    currentText = texts[count];
+    
+    if (isDeleting) {
+        letter = currentText.substring(0, index--);
+    } else {
+        letter = currentText.substring(0, index++);
+    }
+
+    typingSpan.textContent = letter;
+
+    if (!isDeleting && index === currentText.length) {
+        isDeleting = true;
+        setTimeout(type, pause);
+    } else if (isDeleting && index === 0) {
+        isDeleting = false;
+        count = (count + 1) % texts.length;
+        setTimeout(type, 300);
+    } else {
+        setTimeout(type, isDeleting ? 50 : speed);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", type);
+
+
+
+</script>
+
+    <script>
+    // Enhanced scroll animations with Intersection Observer
+    document.addEventListener('DOMContentLoaded', function() {
+        // Configure the intersection observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const section = entry.target;
+                    
+                    // Add animation class
+                    section.classList.add('animate');
+                    
+                    // For skills section, animate each card with delay
+                    if (section.id === 'skills') {
+                        const cards = section.querySelectorAll('.skill-card');
+                        cards.forEach((card, index) => {
+                            card.style.transitionDelay = `${index * 0.1}s`;
+                        });
+                    }
+                    
+                    // Stop observing after animation triggers
+                    observer.unobserve(section);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            // Skip hero section
+            if (!section.classList.contains('hero')) {
+                observer.observe(section);
+            }
+        });
+
+        // Add scroll-activated header effect
+        const header = document.querySelector('header');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.style.boxShadow = 'none';
+                header.style.transform = 'translateY(0)';
+                return;
+            }
+            
+            if (currentScroll > lastScroll) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    });
+</script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+             document.body.classList.add('loaded');
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.projects-tab');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get the tab to show
+                    const tabToShow = this.dataset.tab;
+                    
+                    // Hide all tabs first with transition
+                    tabContents.forEach(content => {
+                        content.style.opacity = '0';
+                        content.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            content.classList.remove('active');
+                        }, 300); // Match this with your CSS transition duration
+                    });
+                    
+                    // Show the selected tab after a slight delay
+                    setTimeout(() => {
+                        const activeTab = document.getElementById(`${tabToShow}-projects`);
+                        if (activeTab) {
+                            activeTab.classList.add('active');
+                            setTimeout(() => {
+                                activeTab.style.opacity = '1';
+                                activeTab.style.transform = 'translateY(0)';
+                            }, 10);
+                        }
+                    }, 300);
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    
+</body>
+</html>
